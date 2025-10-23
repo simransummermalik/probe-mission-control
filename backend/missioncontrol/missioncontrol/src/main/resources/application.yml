@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  address: 0.0.0.0  # allows other devices on LAN to connect
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mission_control
+    username: mission
+    password: control
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
